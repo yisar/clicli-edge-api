@@ -96,7 +96,9 @@
   function handleNewMessage(event) {
     const { username: usernameFromAPI, message, id } = JSON.parse(event.data);
 
-    if(username === localStorage.getItem('username')){
+    
+
+    if(usernameFromAPI === localStorage.getItem('username')){
       return;
     }
 

@@ -96,6 +96,10 @@
   function handleNewMessage(event) {
     const { username: usernameFromAPI, message, id } = JSON.parse(event.data);
 
+    if(username === localStorage.getItem('username')){
+      return;
+    }
+
     if (id > auxIdMessage) auxIdMessage = id;
 
     if (auxIdMessage > lastIdMessage) {

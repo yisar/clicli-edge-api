@@ -11,7 +11,7 @@ export const getChat = (c) => {
                 const { value } = entry;
 
                 if (value) {
-                    await stream.writeSSE({ data: JSON.stringify(value), event: 'message', id: String(entry.key[1]) });
+                    await stream.writeSSE({ data: JSON.stringify(value), event: 'new-message', id: String(entry.key[1]) });
                 }
             }
         } catch (error) {

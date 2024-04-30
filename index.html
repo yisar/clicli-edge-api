@@ -65,7 +65,7 @@
     }
   });
 
-  sourceChat.addEventListener('message', handleNewMessage);
+  sourceChat.addEventListener('new-message', handleNewMessage);
 
   window.addEventListener('unload', () => {
     sourceChat.close();

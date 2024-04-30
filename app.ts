@@ -1,6 +1,6 @@
 import { Hono } from "https://deno.land/x/hono@v3.11.6/mod.ts";
 import { cors, serveStatic } from "https://deno.land/x/hono@v3.11.6/middleware.ts"
-import { getChat, postChat } from "./src/chat";
+import { getChat, postChat } from "./src/chat/index.ts";
 
 const app = new Hono();
 

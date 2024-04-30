@@ -84,10 +84,7 @@
         message: $input.value,
         username: username
       })
-    })
-      .then((response) => {
-        console.log(response);
-      });
+    });
 
     $input.value = '';
     $messages.scrollTo(0, $messages.scrollHeight);

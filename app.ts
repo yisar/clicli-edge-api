@@ -24,7 +24,7 @@ app.get('/chat', (c) => {
         const { value } = entry;
 
         if (value) {
-          await stream.writeSSE({ data: JSON.stringify(value), event: 'new-message', id: String(entry.key[1]) });
+          await stream.writeSSE({ data: JSON.stringify(value), event: 'message', id: String(entry.key[1]) });
         }
       }
     } catch (error) {
@@ -35,7 +35,7 @@ app.get('/chat', (c) => {
 
 app.post('/chat', async (c) => {
   try {
-    const { username, message } = await c.req.json<Message>();
+    const { username, message } = await c.req.json();
 
     await db.set(["message", (idCounter).toString()], { username, message, id: idCounter++});
   

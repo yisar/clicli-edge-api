@@ -65,7 +65,7 @@
     }
   });
 
-  sourceChat.addEventListener('new-message', handleNewMessage);
+  sourceChat.addEventListener('message', handleNewMessage);
 
   window.addEventListener('unload', () => {
     sourceChat.close();
@@ -85,20 +85,21 @@
         username: username
       })
     })
-    .then((response) => {
-      console.log(response);
-    });
+      .then((response) => {
+        console.log(response);
+      });
 
     $input.value = '';
     $messages.scrollTo(0, $messages.scrollHeight);
   }
 
   function handleNewMessage(event) {
+    console.log(event)
     const { username: usernameFromAPI, message, id } = JSON.parse(event.data);
 
-    
 
-    if(usernameFromAPI === localStorage.getItem('username')){
+
+    if (usernameFromAPI === localStorage.getItem('username')) {
       return;
     }
 
